@@ -5,7 +5,7 @@ class Main extends React.Component {
 	render() {
 		return (
 			<main className="Main">
-				<h1>I'M A HEADING!!! WOO!!!</h1>
+				<h1>Publications</h1>
 				<Posts />
 			</main>
 		);

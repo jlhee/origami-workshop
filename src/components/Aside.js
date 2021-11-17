@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import links from "../data/data.json";
-import Link from "./Link";
+import ListItem from "./ListItem";
 
 class Aside extends React.Component {
 	render() {
@@ -8,7 +9,7 @@ class Aside extends React.Component {
 			<aside className="Aside">
 				<ul>
 					{links.map((link) => {
-						return <Link key={link} url={link} location={link} />;
+						return <ListItem location={link} />;
 					})}
 				</ul>
 			</aside>

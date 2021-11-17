@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import links from "../data/data.json";
-import Link from "./Link";
+import ListItem from "./ListItem";
 
 class Footer extends React.Component {
 	render() {
@@ -8,13 +9,16 @@ class Footer extends React.Component {
 			<footer className="Footer">
 				<ul>
 					{links.map((link) => {
-						return <Link key={link} url={link} location={link} />;
+						return <ListItem location={link} />;
 					})}
+
 					<li className="listItem">
-						<img
-							src="./img/blue-origami-bird.png"
-							alt="Origami logo"
-						/>
+						<Link to="/">
+							<img
+								src="./img/blue-origami-bird.png"
+								alt="Origami logo"
+							/>
+						</Link>
 					</li>
 				</ul>
 				<p>Awesome Junior Devs</p>

@@ -231,3 +231,135 @@ h1 {
 }
 
 /* Footer Styles */
+
+/* Input Styles */
+
+.Input {
+	display: inline-block;
+	padding: 0.5%;
+	width: 83%;
+}
+
+textarea {
+	width: 40%;
+	display: block;
+	margin: 0 auto;
+	resize: none;
+	padding: 2%;
+	height: 10vh;
+	font-style: italic;
+	border-radius: 6px;
+	border: 1px solid #234465;
+	color: #234465;
+}
+
+button {
+	background-color: #234465;
+	color: white;
+	padding: 1%;
+	width: 7%;
+	border-radius: 6px;
+	display: block;
+	margin: 0 auto;
+	border: none;
+	margin-top: 0.5%;
+	border: 2px solid white;
+	margin-bottom: 2%;
+}
+
+button:hover {
+	background-color: white;
+	border: 2px solid #234465;
+	color: #234465;
+	font-style: italic;
+}
+
+.Input h2 {
+	text-align: left;
+	color: #234465;
+	text-decoration: underline;
+}
+
+/* Input Styles */
+
+/* Login & Register Styles */
+
+.Login,
+.Register {
+	width: 83%;
+	display: inline-block;
+	vertical-align: top;
+}
+.form-control {
+	width: 30%;
+	margin: 0 auto;
+	padding: 1%;
+	text-align: center;
+}
+label {
+	float: left;
+	width: 30%;
+	text-align: right;
+}
+input {
+	text-align: center;
+	border: 1px solid #234465;
+	padding: 1%;
+	width: 50%;
+	border-radius: 6px;
+	color: #234465;
+}
+form button {
+	width: auto;
+	padding: 2%;
+}
+
+/* Login & Register Styles */
+
+/* Profile Styles */
+
+.Profile {
+	width: 83%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5%;
+}
+.Profile img {
+	max-width: 265px;
+	margin: 0 auto;
+	display: block;
+}
+.Profile .personal-info {
+	vertical-align: top;
+	padding: 10px;
+	margin: 0 auto;
+	color: #234465;
+	width: 50%;
+	text-align: center;
+}
+.Profile p {
+	text-decoration: underline;
+	margin-bottom: 1%;
+}
+.Profile h2 {
+	text-align: left;
+	color: #234465;
+	text-decoration: underline;
+}
+
+/* Profile Styles */
+
+/* FourOFour Styles */
+
+.FourOFour {
+	width: 83%;
+	display: inline-block;
+	vertical-align: top;
+}
+.FourOFour img {
+	width: 250px;
+	margin: 0 auto;
+	display: block;
+}
+
+/* FourOFour Styles */
