@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import links from "../data/data.json";
+import links from "../data/routes.json";
 import ListItem from "./ListItem";
 
 class Footer extends React.Component {
@@ -15,7 +15,7 @@ class Footer extends React.Component {
 					<li className="listItem">
 						<Link to="/">
 							<img
-								src="./img/blue-origami-bird.png"
+								src="./img/blue-origami-bird-flipped.png"
 								alt="Origami logo"
 							/>
 						</Link>

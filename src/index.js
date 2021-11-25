@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
 // TODO: data make state & variable data for user login and tracking
-// TODO: cookies?
+// TODO: handle cookies
 // TODO: create helpers for the fetch API calls
 
 ReactDOM.render(
