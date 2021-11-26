@@ -8,9 +8,22 @@ class Footer extends React.Component {
 		return (
 			<footer className="Footer">
 				<ul>
-					{links.map((link) => {
-						return <ListItem location={link} />;
-					})}
+					{links
+						.filter((link) => {
+							if (this.props.loggedIn) {
+								return link.type === "private";
+							} else {
+								return link.type === "public";
+							}
+						})
+						.map((link) => {
+							return (
+								<ListItem
+									key={link.name}
+									location={link.name}
+								/>
+							);
+						})}
 
 					<li className="listItem">
 						<Link to="/">

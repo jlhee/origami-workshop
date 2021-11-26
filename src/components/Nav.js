@@ -5,7 +5,21 @@ import ListItem from "./ListItem";
 
 class Nav extends React.Component {
 	// TODO: fetch first 11 posts to get links to pages
+	// constructor(props) {
+	// 	super(props);
+	// 	this.links = links.filter((link) => {
+	// 		if (this.props.loggedIn) {
+	// 			return link.type === "private";
+	// 		} else {
+	// 			return link.type === "public";
+	// 		}
+	// 	});
+	// }
+
 	render() {
+		// let cookieValue = document.cookie.split("=")[1];
+		// let loggedIn = cookieValue ? true : false;
+		// console.log(loggedIn);
 		return (
 			<nav className="Navigation" style={{ position: "fixed" }}>
 				<ul>
@@ -18,9 +32,22 @@ class Nav extends React.Component {
 						</Link>
 					</li>
 
-					{links.map((link) => {
-						return <ListItem location={link} />;
-					})}
+					{links
+						.filter((link) => {
+							if (this.props.loggedIn) {
+								return link.type === "private";
+							} else {
+								return link.type === "public";
+							}
+						})
+						.map((link) => {
+							return (
+								<ListItem
+									key={link.name}
+									location={link.name}
+								/>
+							);
+						})}
 				</ul>
 			</nav>
 		);

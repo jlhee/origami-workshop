@@ -1,1 +1,6 @@
-["Post", "Register", "Login", "Profile"]
+[
+	{ "name": "register", "type": "public" },
+	{ "name": "login", "type": "public" },
+	{ "name": "post", "type": "private" },
+	{ "name": "profile", "type": "private" }
+]

@@ -18,10 +18,13 @@ class Posts extends React.Component {
 					if (!limit || index < limit) {
 						return (
 							<Post
+								key={index}
 								description={post.description}
 								author={post.author}
 							/>
 						);
+					} else {
+						return null;
 					}
 				})}
 			</div>

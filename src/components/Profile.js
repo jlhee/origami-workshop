@@ -7,20 +7,28 @@ function Profile(props) {
 			<img src="./img/profile.png" alt="profile-icon" />
 			<div className="personal-info">
 				<p>
-					<span>Email:</span>
-					{props.email}
+					<span>Username: </span>
+					{props.username}
 				</p>
 				<p>
-					<span>Posts:</span>
+					<span>Posts: </span>
 					{props.numPosts}
 				</p>
+				<button
+					onClick={() => {
+						// logout fetch
+					}}
+				>
+					Logout
+				</button>
 			</div>
 
 			<div>
 				<h2>3 of your recent posts</h2>
-				{posts.slice(-3).map((post) => {
+				{posts.slice(-3).map((post, index) => {
 					return (
 						<Post
+							key={index}
 							description={post.description}
 							author={post.author}
 						/>
