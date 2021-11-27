@@ -1,4 +1,5 @@
 import React from "react";
+import loginHelper from "../helpers/loginHelper";
 
 class Login extends React.Component {
 	constructor(props) {
@@ -18,30 +19,18 @@ class Login extends React.Component {
 		}
 	}
 	submitHandler(event) {
-		// console.log(this.state);
 		event.preventDefault();
-		// add fetch api
-		let headers = {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(this.state),
-		};
-		fetch("http://localhost:9999/api/user/login", headers)
-			.then((res) => {
-				return res.json();
-			})
-			.then((data) => {
-				// let cookie = Cookies.get("x-auth-token");
-				// console.log(cookie);
-				// console.log(data);
-				document.cookie = "token=" + JSON.stringify(data.token);
-				document.cookie = `user={"username":"${data.user.username}", "posts": ${data.user.posts.length}}`;
-				this.props.updateLogin({
-					loggedIn: data.token,
-					username: data.user.username,
-					posts: data.user.posts.length,
-				});
+
+		loginHelper(this.state).then((data) => {
+			document.cookie = `x-auth-token=${data.token}`;
+			document.cookie = `user={"username":"${data.user.username}", "posts": ${data.user.posts.length}}`;
+			this.props.updateLogin({
+				loggedIn: true,
+				username: data.user.username,
+				posts: data.user.posts.length,
+				token: data.token,
 			});
+		});
 		// add updateLogin function
 		// save email & the # of posts from user
 		//

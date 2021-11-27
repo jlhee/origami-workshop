@@ -16,7 +16,7 @@ function App(props) {
 			<Aside loggedIn={props.user.loggedIn} />
 			<Routes>
 				<Route path="/" exact element={<Main />} />
-				<Route path="/post" element={<Input />} />
+				<Route path="/post" element={<Input user={props.user} />} />
 				<Route path="/register" element={<Register />} />
 				<Route
 					path="/login"
@@ -27,11 +27,13 @@ function App(props) {
 					element={
 						<Profile
 							updateLogin={props.updateLogin}
+							user={props.user}
 							username={props.user.username}
 							numPosts={props.user.posts}
 						/>
 					}
 				/>
+				<Route path="/logout" element={<Main />} />
 				<Route path="*" element={<Error />} />
 			</Routes>
 		</div>

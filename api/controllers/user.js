@@ -30,23 +30,24 @@ module.exports = {
 					}
 
 					const token = utils.jwt.createToken({ id: user._id });
-					res.cookie(config.authCookieName, token, {
-						maxAge: 900000,
-						httpOnly: true,
-					}).send({ user, token });
+					res.cookie(config.authCookieName, token).send({
+						user,
+						token,
+					});
 				})
 				.catch(next);
 		},
 
 		logout: (req, res, next) => {
 			const token = req.cookies[config.authCookieName];
+			console.log(req.cookies);
 			console.log("-".repeat(100));
 			console.log(token);
 			console.log("-".repeat(100));
 			models.TokenBlacklist.create({ token })
 				.then(() => {
 					res.clearCookie(config.authCookieName).send(
-						"Logout successfully!"
+						'{"message":"Logout successful!"}'
 					);
 				})
 				.catch(next);
