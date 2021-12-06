@@ -7,9 +7,8 @@ class LoginCheck extends React.Component {
 	constructor(props) {
 		super(props);
 		let cookies = document.cookie;
-		console.log(cookies);
 		let login = "";
-		let user = { username: "", posts: 0 };
+		let user = { _id: "", username: "", posts: [] };
 
 		if (cookies) {
 			cookies = cookies.split("; ");
@@ -30,44 +29,37 @@ class LoginCheck extends React.Component {
 		}
 		this.state = {
 			loggedIn: login ? true : false,
+			_id: user._id,
 			username: user.username,
 			posts: user.posts,
 			token: login,
 		};
 
 		this.updateLogin = this.updateLogin.bind(this);
+		this.addPost = this.addPost.bind(this);
 	}
+
+	addPost() {
+		this.setState((prevState) => {
+			return { posts: prevState.posts + 1 };
+		});
+	}
+
 	updateLogin(logInfo) {
 		let user = logInfo;
 
 		this.setState(() => {
-			return user;
-			// if (!user) {
-			// 	return {
-			// 		loggedIn: false,
-			// 		username: null,
-			// 		posts: null,
-			// 		token: null,
-			// 	};
-			// } else {
-			// 	return { ...user, loggedIn: true };
-			// }
-
-			// if (user) {
-			// 	return {
-			// 		loggedIn: user.loggedIn ? true : false,
-			// 		username: user.username,
-			// 		posts: user.posts,
-			// 		token: user.loggedIn,
-			// 	};
-			// } else {
-			// 	return {
-			// 		loggedIn: false,
-			// 		username: "",
-			// 		posts: 0,
-			// 		token: "",
-			// 	};
-			// }
+			if (user) {
+				return { ...user, loggedIn: true };
+			} else {
+				return {
+					loggedIn: false,
+					_id: "",
+					username: "",
+					posts: [],
+					token: "",
+				};
+			}
 		});
 	}
 
@@ -76,7 +68,11 @@ class LoginCheck extends React.Component {
 		return (
 			<div>
 				<Nav loggedIn={this.state.loggedIn} />
-				<App user={this.state} updateLogin={this.updateLogin} />
+				<App
+					updateLogin={this.updateLogin}
+					user={this.state}
+					addPost={this.addPost}
+				/>
 				<Footer loggedIn={this.state.loggedIn} />
 			</div>
 		);

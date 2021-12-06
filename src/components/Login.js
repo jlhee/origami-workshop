@@ -23,11 +23,12 @@ class Login extends React.Component {
 
 		loginHelper(this.state).then((data) => {
 			document.cookie = `x-auth-token=${data.token}`;
-			document.cookie = `user={"username":"${data.user.username}", "posts": ${data.user.posts.length}}`;
+			document.cookie = `user={"_id":"${data.user._id}", "username":"${data.user.username}", "posts": ${data.user.posts.length}}`;
 			this.props.updateLogin({
 				loggedIn: true,
+				_id: data.user._id,
 				username: data.user.username,
-				posts: data.user.posts.length,
+				posts: data.user.posts,
 				token: data.token,
 			});
 		});

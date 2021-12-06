@@ -1,4 +1,5 @@
 function getPosts(limit = 0, user = "") {
+	limit = Number(limit);
 	let url = "http://localhost:9999/api/origami/";
 	let userUrl = "http://localhost:9999/api/user/";
 	return fetch(url)

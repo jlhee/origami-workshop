@@ -1,6 +1,6 @@
 import React from "react";
 import Post from "./Post";
-import getPosts from "../helpers/getUserPosts";
+import getPosts from "../helpers/getPosts";
 // import posts from "../data/posts.json";
 
 // function getPosts(limit = 0, user = "") {

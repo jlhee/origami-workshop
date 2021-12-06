@@ -16,7 +16,12 @@ function App(props) {
 			<Aside loggedIn={props.user.loggedIn} />
 			<Routes>
 				<Route path="/" exact element={<Main />} />
-				<Route path="/post" element={<Input user={props.user} />} />
+				<Route
+					path="/post"
+					element={
+						<Input user={props.user} addPost={props.addPost} />
+					}
+				/>
 				<Route path="/register" element={<Register />} />
 				<Route
 					path="/login"

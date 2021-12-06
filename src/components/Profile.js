@@ -21,21 +21,17 @@ import logoutHelper from "../helpers/logoutHelper";
 // }
 
 function Profile(props) {
-	// let userPosts = await getPosts();
-
-	// console.log(userPosts);
-
 	return (
 		<div className="Profile">
 			<img src="./img/profile.png" alt="profile-icon" />
 			<div className="personal-info">
 				<p>
 					<span>Username: </span>
-					{props.username}
+					{props.user.username}
 				</p>
 				<p>
 					<span>Posts: </span>
-					{props.numPosts}
+					{props.user.posts}
 				</p>
 				<button
 					onClick={() => {
@@ -56,17 +52,18 @@ function Profile(props) {
 						// 	headers
 						// )
 						logoutHelper().then((data) => {
-							console.log(data);
+							// console.log(data);
 							document.cookie =
 								"x-auth-token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 							document.cookie =
 								"user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-							props.updateLogin({
-								loggedIn: false,
-								username: "",
-								posts: 0,
-								token: "",
-							});
+							props.updateLogin();
+							// {
+							// loggedIn: false,
+							// username: "",
+							// posts: 0,
+							// token: "",
+							// }
 						});
 					}}
 					type="button"
